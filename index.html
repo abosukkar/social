@@ -161,6 +161,86 @@
       box-shadow:0 14px 28px rgba(0,0,0,.25);
     }
 
-    .footerIcon.what
+    .footerIcon.whatsapp:hover{ color:#25D366; }
+    .footerIcon.phone:hover{ color:#1877F2; }
+
+    /* Footer text marquee like news */
+    .footerText{
+      overflow: hidden;
+      white-space: nowrap;
+      box-sizing: border-box;
+      display: block;
+      font-size: 14px;
+      color: var(--text);
+      opacity: 0.8;
+      border-top: 1px solid rgba(0,0,0,.1);
+      padding: 8px 0;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .footerText span{
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 12s linear infinite;
+    }
+
+    @keyframes marquee{
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-100%); }
+    }
+
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="topShade"></div>
+
+    <div class="logoWrap">
+      <img src="logo.jpg" alt="Abu Sukkar Logo" />
+    </div>
+
+    <h1>اكسسوار ابو سكر</h1>
+    <p>اضغط متابعة للاستفادة من عروضنا</p>
+
+    <!-- Social Buttons with real colors -->
+    <a class="btn facebook" href="https://www.facebook.com/share/1CAM9jBwQR/?mibextid=wwXIfr" target="_blank" rel="noopener">
+      <span class="ico"><i class="fa-brands fa-facebook-f"></i></span>
+      <span class="label">Facebook</span>
+    </a>
+
+    <a class="btn instagram" href="https://www.instagram.com/abousukkar_car" target="_blank" rel="noopener">
+      <span class="ico"><i class="fa-brands fa-instagram"></i></span>
+      <span class="label">Instagram</span>
+    </a>
+
+    <a class="btn tiktok" href="https://www.tiktok.com/@abusukarcar" target="_blank" rel="noopener">
+      <span class="ico"><i class="fa-brands fa-tiktok"></i></span>
+      <span class="label">TikTok</span>
+    </a>
+
+    <a class="btn whatsapp" href="https://wa.me/76044456" target="_blank" rel="noopener">
+      <span class="ico"><i class="fa-brands fa-whatsapp"></i></span>
+      <span class="label">WhatsApp</span>
+    </a>
+
+    <!-- Footer icons -->
+    <div class="footerIcons">
+      <a class="footerIcon phone" href="tel:+96176044456">
+        <i class="fa-solid fa-phone"></i>
+      </a>
+
+      <a class="footerIcon whatsapp" href="https://wa.me/76044456" target="_blank" rel="noopener">
+        <i class="fa-brands fa-whatsapp"></i>
+      </a>
+    </div>
+
+    <!-- Footer scrolling news text -->
+    <p class="footerText">
+      <span>اهلا وسهلا بكم في صفحات ابو سكر اضغطو متابعه ليصلكم كل جديد</span>
+    </p>
+
+  </main>
+</body>
+</html>
 
 
