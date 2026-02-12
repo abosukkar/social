@@ -15,13 +15,12 @@
 
   <style>
     :root{
-      --bg:#CDA626;         
-      --btn:#E4DDD4;        
-      --iconBg:#826814;     
+      --bg:rgba(205,166,38,0.9);         
       --text:#120F0E;       
       --muted:rgba(18,15,14,.55);
       --shadow:rgba(0,0,0,.18);
     }
+
     *{box-sizing:border-box;font-family:"Cairo",system-ui,-apple-system,Segoe UI,Roboto,Arial;}
     body{
       margin:0; min-height:100vh;
@@ -39,6 +38,7 @@
       position:relative;
       overflow:hidden;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(4px); /* شوية شفافية لطيفة */
     }
 
     .card:hover {
@@ -59,9 +59,9 @@
       transform:translateX(-50%);
       width:118px; height:118px;
       border-radius:999px;
-      background:rgba(255,255,255,0.0); /* شفافة */
+      background:rgba(255,255,255,0.0);
       padding:8px;
-      box-shadow:0 14px 26px rgba(0,0,0,.18);
+      box-shadow:0 14px 26px var(--shadow);
       display:grid; place-items:center;
     }
 
@@ -90,38 +90,35 @@
       font-weight:600;
     }
 
+    /* Social buttons with real colors */
     .btn{
       display:flex; align-items:center; gap:14px;
-      background:var(--btn);
       border-radius:999px;
       padding:14px 16px;
       text-decoration:none;
-      color:var(--text);
+      color:#fff;
       margin:14px 0;
       box-shadow:0 10px 18px rgba(0,0,0,.10);
-      transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
     }
 
-    .btn:hover {
+    .btn:hover{
       transform: translateY(-6px);
-      background:#fff;
       box-shadow:0 14px 28px rgba(0,0,0,.25);
+      filter: brightness(1.1);
     }
 
     .ico{
       width:44px; height:44px;
       border-radius:999px;
-      background:rgba(130,104,20,.24);
       display:grid; place-items:center;
-      color:var(--iconBg);
+      font-size:20px;
       flex:0 0 auto;
-      font-size:18px;
-      transition: background 0.3s ease, color 0.3s ease;
+      transition: transform 0.3s ease;
     }
 
     .btn:hover .ico{
-      background:rgba(130,104,20,.45);
-      color:#fff;
+      transform: scale(1.1);
     }
 
     .label{
@@ -130,15 +127,15 @@
       flex:1;
       text-align:right;
       direction:ltr;
-      transition: letter-spacing 0.3s ease, color 0.3s ease;
     }
 
-    .btn:hover .label{
-      letter-spacing:1px;
-      color:var(--text);
-    }
+    /* ألوان حقيقية لكل منصة */
+    .facebook{ background:#1877F2; }
+    .instagram{ background:linear-gradient(45deg,#F58529,#DD2A7B,#8134AF,#515BD4);}
+    .tiktok{ background:#000; color:#fff; }
+    .whatsapp{ background:#25D366; color:#fff; }
 
-    /* أيقونات footer style */
+    /* Footer icons */
     .footerIcons{
       margin-top:22px;
       display:flex;
@@ -149,10 +146,10 @@
     .footerIcon{
       width:60px; height:60px;
       border-radius:999px;
-      background:var(--btn);
+      background:#E4DDD4;
       display:flex; align-items:center; justify-content:center;
       text-decoration:none;
-      color:var(--text);
+      color:#120F0E;
       font-size:22px;
       box-shadow:0 10px 18px rgba(0,0,0,.10);
       transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
@@ -162,64 +159,8 @@
       transform: translateY(-5px);
       background:#fff;
       box-shadow:0 14px 28px rgba(0,0,0,.25);
-      color:var(--iconBg);
     }
 
-    .footerText{
-      text-align:center;
-      margin-top:14px;
-      font-size:14px;
-      color:var(--text);
-      opacity:.7;
-    }
+    .footerIcon.what
 
-  </style>
-</head>
-<body>
-  <main class="card">
-    <div class="topShade"></div>
 
-    <div class="logoWrap">
-      <img src="logo.jpg" alt="Abu Sukkar Logo" />
-    </div>
-
-    <h1>اكسسوار ابو سكر</h1>
-    <p>اضغط متابعة للاستفادة من عروضنا</p>
-
-    <!-- Social Buttons -->
-    <a class="btn" href="https://www.facebook.com/share/1CAM9jBwQR/?mibextid=wwXIfr" target="_blank" rel="noopener">
-      <span class="ico"><i class="fa-brands fa-facebook-f"></i></span>
-      <span class="label">Facebook</span>
-    </a>
-
-    <a class="btn" href="https://www.instagram.com/abousukkar_car" target="_blank" rel="noopener">
-      <span class="ico"><i class="fa-brands fa-instagram"></i></span>
-      <span class="label">Instagram</span>
-    </a>
-
-    <a class="btn" href="https://www.tiktok.com/@abusukarcar" target="_blank" rel="noopener">
-      <span class="ico"><i class="fa-brands fa-tiktok"></i></span>
-      <span class="label">Tiktok</span>
-    </a>
-
-    <a class="btn" href="https://wa.me/76044456" target="_blank" rel="noopener">
-      <span class="ico"><i class="fa-brands fa-whatsapp"></i></span>
-      <span class="label">WhatsApp</span>
-    </a>
-
-    <!-- Footer Icons -->
-    <div class="footerIcons">
-      <a class="footerIcon" href="tel:+96176044456">
-        <i class="fa-solid fa-phone"></i>
-      </a>
-
-      <a class="footerIcon" href="https://wa.me/76044456" target="_blank" rel="noopener">
-        <i class="fa-brands fa-whatsapp"></i>
-      </a>
-    </div>
-
-    <p class="footerText">اهلا وسهلا بكم في صفحات ابو سكر اضغطو متابعه ليصلكم كل جديد</p>
-
-  </main>
-</body>
-</html>
