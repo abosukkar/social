@@ -197,14 +197,15 @@
     }
 
     .footerText .scroll{
-      display: inline-block;
-      animation: marquee 40s linear infinite;
-    }
+  display: inline-block;
+  animation: marquee 12s linear infinite 0s;
+  animation-fill-mode: forwards;
+}
 
-    .footerText .scroll span{
-      display: inline-block;
-      padding-left: 80px; /* مسافة بين التكرارات */
-    }
+.footerText .scroll span{
+  display: inline-block;
+  padding-left: 50px; /* مسافة بين التكرارات */
+}
 
     @keyframes marquee{
       0% { transform: translateX(-100%); }
