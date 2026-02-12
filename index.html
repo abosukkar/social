@@ -164,7 +164,7 @@
     .footerIcon.whatsapp:hover{ color:#25D366; }
     .footerIcon.phone:hover{ color:#1877F2; }
 
-    /* Footer text marquee like news */
+    /* Footer text marquee continuous */
     .footerText{
       overflow: hidden;
       white-space: nowrap;
@@ -176,16 +176,21 @@
       border-top: 1px solid rgba(0,0,0,.1);
       padding: 8px 0;
       background: rgba(255,255,255,0.1);
+      position: relative;
     }
 
-    .footerText span{
+    .footerText .scroll{
       display: inline-block;
-      padding-left: 100%;
       animation: marquee 12s linear infinite;
     }
 
+    .footerText .scroll span{
+      display: inline-block;
+      padding-left: 50px; /* مسافة بين التكرارات */
+    }
+
     @keyframes marquee{
-      0% { transform: translateX(0%); }
+      0% { transform: translateX(100%); }
       100% { transform: translateX(-100%); }
     }
 
@@ -234,13 +239,18 @@
       </a>
     </div>
 
-    <!-- Footer scrolling news text -->
+    <!-- Footer scrolling news text continuous -->
     <p class="footerText">
-      <span>اهلا وسهلا بكم في صفحات ابو سكر اضغطو متابعه ليصلكم كل جديد</span>
+      <span class="scroll">
+        <span>اهلا وسهلا بكم في صفحات ابو سكر اضغطو متابعه ليصلكم كل جديد</span>
+        <span>اهلا وسهلا بكم في صفحات ابو سكر اضغطو متابعه ليصلكم كل جديد</span>
+        <span>اهلا وسهلا بكم في صفحات ابو سكر اضغطو متابعه ليصلكم كل جديد</span>
+      </span>
     </p>
 
   </main>
 </body>
 </html>
+
 
 
