@@ -196,21 +196,33 @@
       z-index:1;
     }
 
-    .footerText .scroll{
+    .footerText{
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 14px;
+  color: var(--text);
+  opacity: 0.8;
+  border-top: 1px solid rgba(0,0,0,.1);
+  padding: 8px 0;
+  background: rgba(255,255,255,0.1);
+  position: relative;
+}
+
+.footerText .scroll{
   display: inline-block;
-  animation: marquee 50s linear infinite -5s;
-  animation-fill-mode: forwards;
+  animation: marquee 50s linear infinite;
+  transform: translateX(0); /* يبدأ النص مباشرة */
 }
 
 .footerText .scroll span{
   display: inline-block;
-  padding-left: 80px; /* مسافة بين التكرارات */
+  padding-left: 80px; /* قلل المسافة بين التكرارات */
+}
+@keyframes marquee{
+  0% { transform: translateX(0); }       /* يبدأ النص مباشرة من أول الصفحة */
+  100% { transform: translateX(100%); }  /* يتحرك لليمين */
 }
 
-    @keyframes marquee{
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); } /* يتحرك لليمين */
-    }
   </style>
 </head>
 <body>
