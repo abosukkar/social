@@ -5,21 +5,20 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>اكسسوار ابو سكر</title>
 
-  <!-- Arabic font (free) -->
+  <!-- Arabic font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
 
-  <!-- Icons (free) -->
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
     :root{
-      /* Colors extracted from your reference screenshot */
-      --bg:#CDA626;          /* main mustard */
-      --btn:#E4DDD4;         /* button surface */
-      --iconBg:#826814;      /* icon circle */
-      --text:#120F0E;        /* main text */
+      --bg:#CDA626;         
+      --btn:#E4DDD4;        
+      --iconBg:#826814;     
+      --text:#120F0E;       
       --muted:rgba(18,15,14,.55);
       --shadow:rgba(0,0,0,.18);
       --radius:26px;
@@ -30,6 +29,7 @@
       display:grid; place-items:center;
       background:#f1f1f1;
     }
+
     .card{
       width:min(420px,92vw);
       background:var(--bg);
@@ -38,30 +38,41 @@
       box-shadow:0 18px 60px rgba(0,0,0,.25);
       position:relative;
       overflow:hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    /* dark top overlay like the reference */
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow:0 22px 70px rgba(0,0,0,.28);
+    }
+
     .topShade{
       position:absolute; inset:-30px -30px auto -30px;
       height:190px;
       background:radial-gradient(closest-side at 50% 10%, rgba(0,0,0,.0), rgba(0,0,0,.45));
       pointer-events:none;
     }
+
     .logoWrap{
       position:absolute;
       top: 24px; left:50%;
       transform:translateX(-50%);
       width:118px; height:118px;
       border-radius:999px;
-      background:#fff;
+      background:rgba(255,255,255,0.0); /* شفافة */
       padding:8px;
       box-shadow:0 14px 26px var(--shadow);
+      display:grid; place-items:center;
     }
+
     .logoWrap img{
       width:100%; height:100%;
       border-radius:999px;
       object-fit:cover;
       display:block;
+      background:rgba(255,255,255,0.0); /* خلفية شفافة */
     }
+
     h1{
       margin: 6px 0 0;
       text-align:center;
@@ -70,6 +81,7 @@
       color:var(--text);
       letter-spacing:.2px;
     }
+
     p{
       margin:6px 0 18px;
       text-align:center;
@@ -77,6 +89,7 @@
       font-size:14px;
       font-weight:600;
     }
+
     .btn{
       display:flex; align-items:center; gap:14px;
       background:var(--btn);
@@ -86,31 +99,77 @@
       color:var(--text);
       margin:14px 0;
       box-shadow:0 10px 18px rgba(0,0,0,.10);
+      transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
     }
+
+    .btn:hover {
+      transform: translateY(-6px);
+      background:#fff;
+      box-shadow:0 14px 28px rgba(0,0,0,.25);
+    }
+
     .ico{
       width:44px; height:44px;
       border-radius:999px;
-      background:rgba(130,104,20,.24); /* matches iconBg with soft tint */
+      background:rgba(130,104,20,.24);
       display:grid; place-items:center;
       color:var(--iconBg);
       flex:0 0 auto;
       font-size:18px;
+      transition: background 0.3s ease, color 0.3s ease;
     }
+
+    .btn:hover .ico{
+      background:rgba(130,104,20,.45);
+      color:#fff;
+    }
+
     .label{
       font-weight:800;
       font-size:18px;
       flex:1;
-      text-align:left; /* English labels */
+      text-align:right;
       direction:ltr;
+      transition: letter-spacing 0.3s ease, color 0.3s ease;
     }
+
+    .btn:hover .label{
+      letter-spacing:1px;
+      color:var(--text);
+    }
+
+    /* أيقونة الهاتف footer */
     .footerIcon{
       margin-top:18px;
       display:flex;
       justify-content:center;
-      opacity:.55;
-      font-size:18px;
+      opacity:.85;
+      font-size:20px;
       color:var(--text);
+      width:64px; height:64px;
+      border-radius:999px;
+      background:var(--btn);
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+      box-shadow:0 10px 18px rgba(0,0,0,.10);
     }
+
+    .footerIcon:hover{
+      transform: translateY(-5px);
+      background:#fff;
+      box-shadow:0 14px 28px rgba(0,0,0,.25);
+    }
+
+    .footerIcon i{
+      transition: color 0.3s ease;
+    }
+
+    .footerIcon:hover i{
+      color:var(--iconBg);
+    }
+
   </style>
 </head>
 <body>
@@ -118,7 +177,7 @@
     <div class="topShade"></div>
 
     <div class="logoWrap">
-      <img src="logo.jpg" alt="Abu Sukkar" />
+      <img src="logo.jpg" alt="Abu Sukkar Logo" />
     </div>
 
     <h1>اكسسوار ابو سكر</h1>
@@ -144,9 +203,10 @@
       <span class="label">WhatsApp</span>
     </a>
 
-    <a class="footerIcon" href="tel:+96176044456> 
-      <span> <i class="fa-solid fa-phone"></i> </span> 
+    <a class="footerIcon" href="tel:+96176044456"> 
+      <i class="fa-solid fa-phone"></i>
     </a>
+
   </main>
 </body>
 </html>
