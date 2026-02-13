@@ -15,13 +15,13 @@
 
   <style>
     :root{
-      --bg: rgba(205,166,38,0.85);
-      --text: #120F0E;
-      --muted: rgba(18,15,14,.55);
-      --shadow: rgba(0,0,0,.18);
+      --bg:rgba(205,166,38,0.9);         
+      --text:#120F0E;       
+      --muted:rgba(18,15,14,.55);
+      --shadow:rgba(0,0,0,.18);
     }
 
-    *{box-sizing:border-box; font-family:"Cairo",system-ui,-apple-system,Segoe UI,Roboto,Arial;}
+    *{box-sizing:border-box;font-family:"Cairo",system-ui,-apple-system,Segoe UI,Roboto,Arial;}
     body{
       margin:0; min-height:100vh;
       display:grid; place-items:center;
@@ -31,14 +31,14 @@
 
     .card{
       width:min(420px,92vw);
-      background:rgb(254 255 0 / 76%);
+      background: rgb(254 255 0);
       border-radius:32px;
       padding: 158px 20px 26px;
       box-shadow:0 18px 60px rgba(0,0,0,.25);
       position:relative;
       overflow:hidden;
-      backdrop-filter: blur(4px);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(4px); /* شوية شفافية لطيفة */
     }
 
     .card:hover {
@@ -55,15 +55,14 @@
 
     .logoWrap{
       position:absolute;
-      top:24px; left:50%;
+      top: 24px; left:50%;
       transform:translateX(-50%);
       width:118px; height:118px;
       border-radius:999px;
-      background:rgba(255,255,255,0);
+      background:rgba(255,255,255,0.0);
       padding:8px;
       box-shadow:0 14px 26px var(--shadow);
       display:grid; place-items:center;
-      z-index:2;
     }
 
     .logoWrap img{
@@ -71,29 +70,16 @@
       border-radius:999px;
       object-fit:cover;
       display:block;
-      background:rgba(255,255,255,0);
-    }
-
-    /* Gradual profile background under logo */
-    .profileBg{
-      position:absolute;
-      bottom:0; left:0;
-      width:100%; height:50%;
-      background: url('profile.jpg') center/cover no-repeat;
-      opacity:0.15;
-      mask-image: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0));
-      -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0));
-      z-index:0;
+      background:rgba(255,255,255,0.0);
     }
 
     h1{
-      margin:6px 0 0;
+      margin: 6px 0 0;
       text-align:center;
       font-size:28px;
       font-weight:800;
       color:var(--text);
       letter-spacing:.2px;
-      position:relative; z-index:1;
     }
 
     p{
@@ -102,7 +88,6 @@
       color:var(--muted);
       font-size:14px;
       font-weight:600;
-      position:relative; z-index:1;
     }
 
     /* Social buttons with real colors */
@@ -115,7 +100,6 @@
       margin:14px 0;
       box-shadow:0 10px 18px rgba(0,0,0,.10);
       transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
-      position:relative; z-index:1;
     }
 
     .btn:hover{
@@ -145,19 +129,19 @@
       direction:ltr;
     }
 
+    /* ألوان حقيقية لكل منصة */
     .facebook{ background:#1877F2; }
     .instagram{ background:linear-gradient(45deg,#F58529,#DD2A7B,#8134AF,#515BD4);}
     .tiktok{ background:#000; color:#fff; }
     .whatsapp{ background:#25D366; color:#fff; }
 
     /* Footer icons */
-   .footerIcons {
-    margin-top: 48px;
-    display: flex;
-    justify-content: center;
-    gap: 73px;
-    position: relative;
-    z-index: 1;
+    .footerIcons{
+      margin-top:22px;
+      display:flex;
+      justify-content:center;
+      gap:16px;
+    }
 
     .footerIcon{
       width:60px; height:60px;
@@ -172,7 +156,7 @@
     }
 
     .footerIcon:hover{
-      transform: translateY(-5px);
+      transform: translateX(-5px);
       background:#fff;
       box-shadow:0 14px 28px rgba(0,0,0,.25);
     }
@@ -180,78 +164,52 @@
     .footerIcon.whatsapp:hover{ color:#25D366; }
     .footerIcon.phone:hover{ color:#1877F2; }
 
-      /* Footer scrolling news text continuous (from left to right) */
-        .footerText {
-            overflow: hidden;
-            white-space: nowrap;
-            box-sizing: border-box;
-            display: block;
-            font-size: 14px;
-            color: var(--text);
-            opacity: 0.8;
-            border-top: 1px solid rgba(0, 0, 0, .1);
-            padding: 8px 0;
-            background: rgba(255, 255, 255, 0.1);
-            position: relative;
-            z-index: 1;
-        }
+    /* Footer text marquee continuous */
+    .footerText{
+      overflow: hidden;
+      white-space: nowrap;
+      box-sizing: border-box;
+      display: block;
+      font-size: 14px;
+     color: rgb(255 255 255);
+      opacity: 0.8;
+      border-top: 1px solid rgba(0,0,0,.1);
+      padding: 8px 0;
+      background: rgb(0 0 0 / 56%);
+      position: relative;
+    }
 
-        .footerText {
-            overflow: hidden;
-            white-space: nowrap;
-            font-size: 14px;
-            color: var(--text);
-            opacity: 0.8;
-            border-top: 1px solid rgba(0, 0, 0, .1);
-            padding: 8px 0;
-            background: rgba(255, 255, 255, 0.1);
-            position: relative;
-        }
+    .footerText .scroll{
+      display: inline-block;
+      animation: marquee 50s linear infinite;
+    }
 
-        .footerText .scroll {
-            display: inline-block;
-            animation: marquee 80s linear infinite;
-            transform: translateX(0);
-            /* يبدأ النص مباشرة */
-        }
+    .footerText .scroll span{
+      display: inline-block;
+      padding-left: 80px; /* مسافة بين التكرارات */
+    }
 
-        .footerText .scroll span {
-            display: inline-block;
-            padding-left: 80px;
-            /* قلل المسافة بين التكرارات */
-        }
-
-        @keyframes marquee {
-            0% {
-                transform: translateX();
-            }
-
-            /* يبدأ النص مباشرة من أول الصفحة */
-            100% {
-                transform: translateX(150%);
-            }
-
-            /* يتحرك لليمين */
-        }
-
+    @keyframes marquee{
+      0% {
+        transform: translateX(0%); 
+      }
+      100% { transform: translateX(150%); }
+    }
 
   </style>
 </head>
 <body>
   <main class="card">
     <div class="topShade"></div>
-    <div class="profileBg"></div>
 
     <div class="logoWrap">
       <img src="logo.jpg" alt="Abu Sukkar Logo" />
     </div>
-    
+
     <h1>اكسسوار ابو سكر</h1>
- <!-- Footer scrolling news text continuous -->
+    <!-- Footer scrolling news text continuous -->
     <p class="footerText">
       <span class="scroll">
-        <span>اهلا وسهلا بكم في صفحات ابو سكر اضغطو متابعه ليصلكم كل جديد</span>
-        <span>اهلا وسهلا بكم في صفحات ابو سكر اضغطو متابعه ليصلكم كل جديد</span>
         <span>اهلا وسهلا بكم في صفحات ابو سكر اضغطو متابعه ليصلكم كل جديد</span>
         <span>اهلا وسهلا بكم في صفحات ابو سكر اضغطو متابعه ليصلكم كل جديد</span>
         <span>اهلا وسهلا بكم في صفحات ابو سكر اضغطو متابعه ليصلكم كل جديد</span>
@@ -261,7 +219,6 @@
       </span>
     </p>
    
-
     <!-- Social Buttons with real colors -->
     <a class="btn facebook" href="https://www.facebook.com/share/1CAM9jBwQR/?mibextid=wwXIfr" target="_blank" rel="noopener">
       <span class="ico"><i class="fa-brands fa-facebook-f"></i></span>
@@ -293,29 +250,30 @@
         <i class="fa-brands fa-whatsapp"></i>
       </a>
     </div>
-<div class="Footer"> 
-    <p><b>البقاع الاوسط برالياس الطريق العام</b></p>
-     <p><b> بيع جمله و مفرق واسعار خاصه لاصحاب محلات الجمله</b></p>
-</div>
-
-    <style>
-.Footer {
-    position: relative;
-    padding: initial;
-    border-radius: 34px;
-    background: rgb(252 255 187);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    box-shadow: -1px 4px 13px 3px rgb(6 6 6 / 40%);
-    margin-top: 49px
-</style>
-
-  
-    
-
 
     
-  </main>
+     <div class="Footer">
+            <p><b>البقاع الاوسط برالياس الطريق العام</b></p>
+            <p><b> بيع جمله و مفرق واسعار خاصه لاصحاب محلات الجمله</b></p>
+        </div>
+
+        <style>
+            .Footer {
+                position: relative;
+                margin-top: 35px;
+                border-radius: 25px;
+
+               background: rgb(251 255 182 / 96%);
+                /* شفافية */
+                backdrop-filter: blur(15px);
+                /* ضبابية */
+                -webkit-backdrop-filter: blur(15px);
+
+                box-shadow: 2px 10px 18px 4px rgb(0 0 0 / 40%);
+                /* عز ذهبي */
+            }
+        </style>
+</main>
 </body>
-</html>
 
+</html>
