@@ -181,39 +181,42 @@
     .footerIcon.phone:hover{ color:#1877F2; }
 
       /* Footer scrolling news text continuous (from left to right) */
-        .footerText {
-            overflow: hidden;
-            white-space: nowrap;
-            box-sizing: border-box;
-            display: block;
-            font-size: 14px;
-            color: var(--text);
-            opacity: 0.8;
-            border-top: 1px solid rgba(0, 0, 0, .1);
-            padding: 8px 0;
-            background: rgba(255, 255, 255, 0.1);
-            position: relative;
-            z-index: 1;
-        }
-
-        
-
-        .footerText .scroll {
-            display: inline-block;
-            animation: marquee 80s linear infinite;
-            transform: translateX(0);
-            /* يبدأ النص مباشرة */
-        }
-
-        .footerText .scroll span {
-            display: inline-block;
-            padding-left: 80px;
-            /* قلل المسافة بين التكرارات */
-        }
-@keyframes marquee{
-  0% { transform: translateX(); }       /* يبدأ النص مباشرة من أول الصفحة */
-  100% { transform: translateX(150%); }  /* يتحرك لليمين */
+       .footerText {
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  display: block;
+  font-size: 14px;
+  color: var(--text, #000);
+  opacity: 0.8;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 8px 0;
+  background: rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 1;
 }
+
+.footerText .scroll {
+  display: inline-block;
+  will-change: transform;
+  animation: marquee 20s linear infinite; /* زود أو قلل الوقت حسب السرعة */
+}
+
+.footerText .scroll span {
+  display: inline-block;
+  padding-left: 80px; /* المسافة بين الجمل المكررة */
+}
+
+/* الحركة من اليمين إلى اليسار */
+@keyframes marquee {
+  0% {
+    transform: translateX(100%); /* يبدأ من خارج الشاشة */
+  }
+  100% {
+    transform: translateX(-100%); /* يخرج من الجهة المقابلة */
+  }
+}
+
 
   </style>
 </head>
