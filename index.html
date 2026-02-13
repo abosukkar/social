@@ -1,258 +1,342 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>اكسسوار ابو سكر</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>اكسسوار ابو سكر</title>
 
-  <!-- Arabic font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- Arabic font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
 
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <style>
-    :root{
-      --bg:rgba(205,166,38,0.9);         
-      --text:#120F0E;       
-      --muted:rgba(18,15,14,.55);
-      --shadow:rgba(0,0,0,.18);
-    }
+    <style>
+        :root {
+            --bg: rgba(205, 166, 38, 0.85);
+            --text: #120F0E;
+            --muted: rgba(18, 15, 14, .55);
+            --shadow: rgba(0, 0, 0, .18);
+        }
 
-    *{box-sizing:border-box;font-family:"Cairo",system-ui,-apple-system,Segoe UI,Roboto,Arial;}
-    body{
-      margin:0; min-height:100vh;
-      display:grid; place-items:center;
-      background:#f1f1f1;
-      padding:20px;
-    }
+        * {
+            box-sizing: border-box;
+            font-family: "Cairo", system-ui, -apple-system, Segoe UI, Roboto, Arial;
+        }
 
-    .card{
-      width:min(420px,92vw);
-      background: rgb(254 255 0);
-      border-radius:32px;
-      padding: 158px 20px 26px;
-      box-shadow:0 18px 60px rgba(0,0,0,.25);
-      position:relative;
-      overflow:hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      backdrop-filter: blur(4px); /* شوية شفافية لطيفة */
-    }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            background: #f1f1f1;
+            padding: 20px;
+        }
 
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow:0 22px 70px rgba(0,0,0,.28);
-    }
+        .card {
+            width: min(420px, 92vw);
+            background: var(--bg);
+            border-radius: 32px;
+            padding: 158px 20px 26px;
+            box-shadow: 0 18px 60px rgba(0, 0, 0, .25);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(4px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-    .topShade{
-      position:absolute; inset:-30px -30px auto -30px;
-      height:190px;
-      background:radial-gradient(closest-side at 50% 10%, rgba(0,0,0,.0), rgba(0,0,0,.45));
-      pointer-events:none;
-    }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 22px 70px rgba(0, 0, 0, .28);
+        }
 
-    .logoWrap{
-      position:absolute;
-      top: 24px; left:50%;
-      transform:translateX(-50%);
-      width:118px; height:118px;
-      border-radius:999px;
-      background:rgba(255,255,255,0.0);
-      padding:8px;
-      box-shadow:0 14px 26px var(--shadow);
-      display:grid; place-items:center;
-    }
+        .topShade {
+            position: absolute;
+            inset: -30px -30px auto -30px;
+            height: 190px;
+            background: radial-gradient(closest-side at 50% 10%, rgba(0, 0, 0, .0), rgba(0, 0, 0, .45));
+            pointer-events: none;
+        }
 
-    .logoWrap img{
-      width:100%; height:100%;
-      border-radius:999px;
-      object-fit:cover;
-      display:block;
-      background:rgba(255,255,255,0.0);
-    }
+        .logoWrap {
+            position: absolute;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 118px;
+            height: 118px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0);
+            padding: 8px;
+            box-shadow: 0 14px 26px var(--shadow);
+            display: grid;
+            place-items: center;
+            z-index: 2;
+        }
 
-    h1{
-      margin: 6px 0 0;
-      text-align:center;
-      font-size:28px;
-      font-weight:800;
-      color:var(--text);
-      letter-spacing:.2px;
-    }
+        .logoWrap img {
+            width: 100%;
+            height: 100%;
+            border-radius: 999px;
+            object-fit: cover;
+            display: block;
+            background: rgba(255, 255, 255, 0);
+        }
 
-    p{
-      margin:6px 0 18px;
-      text-align:center;
-      color:var(--muted);
-      font-size:14px;
-      font-weight:600;
-    }
+        /* Gradual profile background under logo */
+        .profileBg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: url('logo.jpg') center/cover no-repeat;
+            opacity: 0.15;
+            mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+            -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+            z-index: 0;
+        }
 
-    /* Social buttons with real colors */
-    .btn{
-      display:flex; align-items:center; gap:14px;
-      border-radius:999px;
-      padding:14px 16px;
-      text-decoration:none;
-      color:#fff;
-      margin:14px 0;
-      box-shadow:0 10px 18px rgba(0,0,0,.10);
-      transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
-    }
+        h1 {
+            margin: 6px 0 0;
+            text-align: center;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--text);
+            letter-spacing: .2px;
+            position: relative;
+            z-index: 1;
+        }
 
-    .btn:hover{
-      transform: translateY(-6px);
-      box-shadow:0 14px 28px rgba(0,0,0,.25);
-      filter: brightness(1.1);
-    }
+        p {
+            margin: 6px 0 18px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
 
-    .ico{
-      width:44px; height:44px;
-      border-radius:999px;
-      display:grid; place-items:center;
-      font-size:20px;
-      flex:0 0 auto;
-      transition: transform 0.3s ease;
-    }
+        /* Social buttons with real colors */
+        .btn {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            border-radius: 999px;
+            padding: 14px 16px;
+            text-decoration: none;
+            color: #fff;
+            margin: 14px 0;
+            box-shadow: 0 10px 18px rgba(0, 0, 0, .10);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
 
-    .btn:hover .ico{
-      transform: scale(1.1);
-    }
+        .btn:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, .25);
+            filter: brightness(1.1);
+        }
 
-    .label{
-      font-weight:800;
-      font-size:18px;
-      flex:1;
-      text-align:right;
-      direction:ltr;
-    }
+        .ico {
+            width: 44px;
+            height: 44px;
+            border-radius: 999px;
+            display: grid;
+            place-items: center;
+            font-size: 20px;
+            flex: 0 0 auto;
+            transition: transform 0.3s ease;
+        }
 
-    /* ألوان حقيقية لكل منصة */
-    .facebook{ background:#1877F2; }
-    .instagram{ background:linear-gradient(45deg,#F58529,#DD2A7B,#8134AF,#515BD4);}
-    .tiktok{ background:#000; color:#fff; }
-    .whatsapp{ background:#25D366; color:#fff; }
+        .btn:hover .ico {
+            transform: scale(1.1);
+        }
 
-    /* Footer icons */
-    .footerIcons{
-      margin-top:22px;
-      display:flex;
-      justify-content:center;
-      gap:16px;
-    }
+        .label {
+            font-weight: 800;
+            font-size: 18px;
+            flex: 1;
+            text-align: right;
+            direction: ltr;
+        }
 
-    .footerIcon{
-      width:60px; height:60px;
-      border-radius:999px;
-      background:#E4DDD4;
-      display:flex; align-items:center; justify-content:center;
-      text-decoration:none;
-      color:#120F0E;
-      font-size:22px;
-      box-shadow:0 10px 18px rgba(0,0,0,.10);
-      transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
-    }
+        .facebook {
+            background: #1877F2;
+        }
 
-    .footerIcon:hover{
-      transform: translateX(-5px);
-      background:#fff;
-      box-shadow:0 14px 28px rgba(0,0,0,.25);
-    }
+        .instagram {
+            background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4);
+        }
 
-    .footerIcon.whatsapp:hover{ color:#25D366; }
-    .footerIcon.phone:hover{ color:#1877F2; }
+        .tiktok {
+            background: #000;
+            color: #fff;
+        }
 
-    /* Footer text marquee continuous */
-    .footerText{
-      overflow: hidden;
-      white-space: nowrap;
-      box-sizing: border-box;
-      display: block;
-      font-size: 14px;
-     color: rgb(255 255 255);
-      opacity: 0.8;
-      border-top: 1px solid rgba(0,0,0,.1);
-      padding: 8px 0;
-      background: rgb(0 0 0 / 56%);
-      position: relative;
-    }
+        .whatsapp {
+            background: #25D366;
+            color: #fff;
+        }
 
-    .footerText .scroll{
-      display: inline-block;
-      animation: marquee 50s linear infinite;
-    }
+        /* Footer icons */
+        .footerIcons {
+            margin-top: 22px;
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            position: relative;
+            z-index: 1;
+        }
 
-    .footerText .scroll span{
-      display: inline-block;
-      padding-left: 80px; /* مسافة بين التكرارات */
-    }
+        .footerIcon {
+            width: 60px;
+            height: 60px;
+            border-radius: 999px;
+            background: #E4DDD4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #120F0E;
+            font-size: 22px;
+            box-shadow: 0 10px 18px rgba(0, 0, 0, .10);
+            transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+        }
 
-    @keyframes marquee{
-      0% {
-        transform: translateX(0%); 
-      }
-      100% { transform: translateX(150%); }
-    }
+        .footerIcon:hover {
+            transform: translateY(-5px);
+            background: #fff;
+            box-shadow: 0 14px 28px rgba(0, 0, 0, .25);
+        }
 
-  </style>
+        .footerIcon.whatsapp:hover {
+            color: #25D366;
+        }
+
+        .footerIcon.phone:hover {
+            color: #1877F2;
+        }
+
+        /* Footer scrolling news text continuous (from left to right) */
+        .footerText {
+            overflow: hidden;
+            white-space: nowrap;
+            box-sizing: border-box;
+            display: block;
+            font-size: 14px;
+            color: var(--text);
+            opacity: 0.8;
+            border-top: 1px solid rgba(0, 0, 0, .1);
+            padding: 8px 0;
+            background: rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .footerText {
+            overflow: hidden;
+            white-space: nowrap;
+            font-size: 14px;
+            color: var(--text);
+            opacity: 0.8;
+            border-top: 1px solid rgba(0, 0, 0, .1);
+            padding: 8px 0;
+            background: rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .footerText .scroll {
+            display: inline-block;
+            animation: marquee 80s linear infinite;
+            transform: translateX(0);
+            /* يبدأ النص مباشرة */
+        }
+
+        .footerText .scroll span {
+            display: inline-block;
+            padding-left: 80px;
+            /* قلل المسافة بين التكرارات */
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX();
+            }
+
+            /* يبدأ النص مباشرة من أول الصفحة */
+            100% {
+                transform: translateX(150%);
+            }
+
+            /* يتحرك لليمين */
+        }
+    </style>
 </head>
+
 <body>
-  <main class="card">
-    <div class="topShade"></div>
+    <main class="card">
+        <div class="topShade"></div>
+        <div class="profileBg"></div>
 
-    <div class="logoWrap">
-      <img src="logo.jpg" alt="Abu Sukkar Logo" />
-    </div>
+        <div class="logoWrap">
+            <img src="Img/LOGO-1.png" alt="Abu Sukkar Logo" />
+        </div>
 
-    <h1>اكسسوار ابو سكر</h1>
-    <!-- Footer scrolling news text continuous -->
-    <p class="footerText">
-      <span class="scroll">
-        <span>اهلا وسهلا بكم في صفحات ابو سكر اضغطو متابعه ليصلكم كل جديد</span>
-        <span>اهلا وسهلا بكم في صفحات ابو سكر اضغطو متابعه ليصلكم كل جديد</span>
-        <span>اهلا وسهلا بكم في صفحات ابو سكر اضغطو متابعه ليصلكم كل جديد</span>
-        <span>اهلا وسهلا بكم في صفحات ابو سكر اضغطو متابعه ليصلكم كل جديد</span>
-        <span>اهلا وسهلا بكم في صفحات ابو سكر اضغطو متابعه ليصلكم كل جديد</span>
-        <span>اهلا وسهلا بكم في صفحات ابو سكر اضغطو متابعه ليصلكم كل جديد</span>
-      </span>
-    </p>
-   
-    <!-- Social Buttons with real colors -->
-    <a class="btn facebook" href="https://www.facebook.com/share/1CAM9jBwQR/?mibextid=wwXIfr" target="_blank" rel="noopener">
-      <span class="ico"><i class="fa-brands fa-facebook-f"></i></span>
-      <span class="label">Facebook</span>
-    </a>
+        <h1>اكسسوار ابو سكر</h1>
+        <!-- Footer scrolling news text continuous -->
+        <p class="footerText">
+            <span class="scroll">
+                <span>اهلا وسهلا بكم في صفحات ابو سكر اضغطو متابعه ليصلكم كل جديد</span>
+                <span>اهلا وسهلا بكم في صفحات ابو سكر اضغطو متابعه ليصلكم كل جديد</span>
+                <span>اهلا وسهلا بكم في صفحات ابو سكر اضغطو متابعه ليصلكم كل جديد</span>
+                <span>اهلا وسهلا بكم في صفحات ابو سكر اضغطو متابعه ليصلكم كل جديد</span>
+                <span>اهلا وسهلا بكم في صفحات ابو سكر اضغطو متابعه ليصلكم كل جديد</span>
+                <span>اهلا وسهلا بكم في صفحات ابو سكر اضغطو متابعه ليصلكم كل جديد</span>
+                <span>اهلا وسهلا بكم في صفحات ابو سكر اضغطو متابعه ليصلكم كل جديد</span>
+                <span>اهلا وسهلا بكم في صفحات ابو سكر اضغطو متابعه ليصلكم كل جديد</span>
+            </span>
+        </p>
 
-    <a class="btn instagram" href="https://www.instagram.com/abousukkar_car" target="_blank" rel="noopener">
-      <span class="ico"><i class="fa-brands fa-instagram"></i></span>
-      <span class="label">Instagram</span>
-    </a>
 
-    <a class="btn tiktok" href="https://www.tiktok.com/@abusukarcar" target="_blank" rel="noopener">
-      <span class="ico"><i class="fa-brands fa-tiktok"></i></span>
-      <span class="label">TikTok</span>
-    </a>
+        <!-- Social Buttons with real colors -->
+        <a class="btn facebook" href="https://www.facebook.com/share/1CAM9jBwQR/?mibextid=wwXIfr" target="_blank"
+            rel="noopener">
+            <span class="ico"><i class="fa-brands fa-facebook-f"></i></span>
+            <span class="label">Facebook</span>
+        </a>
 
-    <a class="btn whatsapp" href="https://wa.me/76044456" target="_blank" rel="noopener">
-      <span class="ico"><i class="fa-brands fa-whatsapp"></i></span>
-      <span class="label">WhatsApp</span>
-    </a>
+        <a class="btn instagram" href="https://www.instagram.com/abousukkar_car" target="_blank" rel="noopener">
+            <span class="ico"><i class="fa-brands fa-instagram"></i></span>
+            <span class="label">Instagram</span>
+        </a>
 
-    <!-- Footer icons -->
-    <div class="footerIcons">
-      <a class="footerIcon phone" href="tel:+96176044456">
-        <i class="fa-solid fa-phone"></i>
-      </a>
+        <a class="btn tiktok" href="https://www.tiktok.com/@abusukarcar" target="_blank" rel="noopener">
+            <span class="ico"><i class="fa-brands fa-tiktok"></i></span>
+            <span class="label">TikTok</span>
+        </a>
 
-      <a class="footerIcon whatsapp" href="https://wa.me/76044456" target="_blank" rel="noopener">
-        <i class="fa-brands fa-whatsapp"></i>
-      </a>
-    </div>
+        <a class="btn whatsapp" href="https://wa.me/76044456" target="_blank" rel="noopener">
+            <span class="ico"><i class="fa-brands fa-whatsapp"></i></span>
+            <span class="label">WhatsApp</span>
+        </a>
 
-    
-     <div class="Footer">
+        <!-- Footer icons -->
+        <div class="footerIcons">
+            <a class="footerIcon phone" href="tel:+96176044456">
+                <i class="fa-solid fa-phone"></i>
+            </a>
+
+            <a class="footerIcon whatsapp" href="https://wa.me/76044456" target="_blank" rel="noopener">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+        </div>
+        <div class="Footer">
             <p><b>البقاع الاوسط برالياس الطريق العام</b></p>
             <p><b> بيع جمله و مفرق واسعار خاصه لاصحاب محلات الجمله</b></p>
         </div>
@@ -260,20 +344,26 @@
         <style>
             .Footer {
                 position: relative;
-                margin-top: 35px;
+                padding: 30px 20px;
                 border-radius: 25px;
 
-               background: rgb(251 255 182 / 96%);
+                background: rgba(255, 255, 255, 0.1);
                 /* شفافية */
                 backdrop-filter: blur(15px);
                 /* ضبابية */
                 -webkit-backdrop-filter: blur(15px);
 
-                box-shadow: 2px 10px 18px 4px rgb(0 0 0 / 40%);
+                box-shadow: 0 0 40px rgba(255, 215, 0, 0.4);
                 /* عز ذهبي */
             }
         </style>
-</main>
+
+
+
+
+
+
+    </main>
 </body>
 
 </html>
