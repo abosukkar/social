@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.qr-box {
+    text-align: center;
+}
+
+
+#qrcode {
+    padding: 15px;
+    border-radius: 25px;
+}
+
+
+h2 {
+    margin-top: 15px;
+    font-size: 32px;
+    font-weight: bold;
+}
